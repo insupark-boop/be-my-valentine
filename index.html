@@ -2,37 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Be My Valentine 💌</title>
+  <title>For Neha 💖</title>
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-  <!-- Floating hearts background -->
-  <div class="hearts"></div>
+<audio id="bgMusic" loop>
+  <source src="love-song.mp3" type="audio/mpeg">
+</audio>
 
-  <!-- Background music -->
-  <audio id="bgMusic" loop>
-    <source src="down-joyuri.mp3" type="audio/mpeg">
-  </audio>
+<div class="container">
+  <img src="valentine.jpg" class="valentine-img">
+  <h1>Neha Bhagat 💕</h1>
+  <h2>Will you be my Valentine?</h2>
 
-  <div class="container">
-    <img src="neha.jpg" alt="Neha" class="valentine-img">
-
-    <h1>Neha Bhagat 💖</h1>
-    <h2>Will you be my Valentine? 💘</h2>
-
-    <div class="buttons">
-      <button id="yesBtn">Yes 💕</button>
-      <button id="noBtn">No 🙃</button>
-    </div>
-
-    <p id="message"></p>
-    <p id="dateMessage"></p>
+  <div class="buttons">
+    <button id="yesBtn">YES 💖</button>
+    <button id="noBtn">No 😢</button>
   </div>
 
-  <!-- Confetti library -->
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-  <script src="script.js"></script>
+  <p id="message"></p>
+
+  <button id="nextPageBtn" style="display:none;">
+    CLICK ME 😏
+  </button>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>

@@ -1,21 +1,15 @@
-const yesBtn = document.getElementById("yesBtn");
-const noBtn = document.getElementById("noBtn");
-const message = document.getElementById("message");
-const music = document.getElementById("bgMusic");
-const photo = document.querySelector(".valentine-img");
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
 
-yesBtn.addEventListener("click", () => {
-  message.innerText =
-    "Yay!! 💕 I can’t wait to spend Valentine’s with you, Neha 😘";
+  heart.innerText = "Neha 💖";
 
-  photo.style.display = "block";
-  music.volume = 0.6;
-  music.play();
-});
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = Math.random() * 3 + 4 + "s";
 
-noBtn.addEventListener("mouseover", () => {
-  const x = Math.floor(Math.random() * 200) - 100;
-  const y = Math.floor(Math.random() * 200) - 100;
+  heartsContainer.appendChild(heart);
 
-  noBtn.style.transform = `translate(${x}px, ${y}px)`;
-});
+  setTimeout(() => {
+    heart.remove();
+  }, 6000);
+}

@@ -1,52 +1,51 @@
 const yesBtn = document.getElementById("yesBtn");
 const noBtn = document.getElementById("noBtn");
 const message = document.getElementById("message");
-const dateMessage = document.getElementById("dateMessage");
 const music = document.getElementById("bgMusic");
-const photo = document.querySelector(".valentine-img");
-const heartsContainer = document.querySelector(".hearts");
+const nextPageBtn = document.getElementById("nextPageBtn");
 
-// YES button behavior
 yesBtn.addEventListener("click", () => {
-  message.innerText =
-    "Yay!! 💕 I can’t wait to spend Valentine’s with you, Neha 😘";
-
-  dateMessage.innerText =
-    "💘 Feb 14 is now scheduled with INSU 💘";
-  dateMessage.style.display = "block";
-
-  photo.style.display = "block";
-  music.volume = 0.6;
+  message.innerText = "Feb 14 is now scheduled with INSU 💕";
   music.play();
-
-  confetti({
-    particleCount: 200,
-    spread: 80,
-    origin: { y: 0.6 }
-  });
+  launchConfetti();
+  startHearts();
+  nextPageBtn.style.display = "inline-block";
 });
 
-// NO button runs away
 noBtn.addEventListener("mouseover", () => {
-  const x = Math.random() * 200 - 100;
-  const y = Math.random() * 200 - 100;
-  noBtn.style.transform = `translate(${x}px, ${y}px)`;
+  noBtn.style.position = "absolute";
+  noBtn.style.left = Math.random() * window.innerWidth + "px";
+  noBtn.style.top = Math.random() * window.innerHeight + "px";
 });
 
-// Floating hearts
-function createHeart() {
-  const heart = document.createElement("div");
-  heart.classList.add("heart");
-  heart.innerText = "Neha 💖";
+nextPageBtn.addEventListener("click", () => {
+  window.location.href = "yes.html";
+});
 
-  heart.style.left = Math.random() * 100 + "vw";
-  heart.style.animationDuration = Math.random() * 3 + 4 + "s";
+function startHearts() {
+  setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerText = "💖 Neha";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = Math.random() * 20 + 20 + "px";
+    document.body.appendChild(heart);
 
-  heartsContainer.appendChild(heart);
-
-  setTimeout(() => {
-    heart.remove();
-  }, 6000);
+    setTimeout(() => {
+      heart.remove();
+    }, 5000);
+  }, 300);
 }
 
-setInterval(createHeart, 300);
+function launchConfetti() {
+  for (let i = 0; i < 100; i++) {
+    const confetti = document.createElement("div");
+    confetti.innerText = "🎉";
+    confetti.style.position = "absolute";
+    confetti.style.left = Math.random() * window.innerWidth + "px";
+    confetti.style.top = Math.random() * window.innerHeight + "px";
+    document.body.appendChild(confetti);
+
+    setTimeout(() => confetti.remove(), 2000);
+  }
+}
